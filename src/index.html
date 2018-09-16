@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>P5-Boil</title>
+    <script type="text/javascript" src="//localhost:35729/livereload.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- build:dev -->
+    <% if (library == "p5js-0.5.16"){ %>
+    <script language="javascript" src="libs/p5-0.5.16.js"></script>
+    <% } %>
+    <% if (library == "p5js-0.6"){ %>
+    <script language="javascript" src="libs/p5-0.6.js"></script>
+    <% } %>
+    
+    <% if (library == "processingjs"){ %>
+    <script language="javascript" src="libs/pjs1.4.8.js"></script>
+    <% } %>
+
+    <% if (library == "processingjs-hack"){ %>
+    <!-- pjs hack-->
+    <% } %>
+    <!-- /build -->
+
+	<!-- build:dev -->
+ 	<% if (bundleMethod == "concat"){ %>
+    <!--  using concat method -->
+    <script src="index.js"></script>
+    <% } %>
+    
+    <% if (bundleMethod == "module"){ %>
+    <script type="module" src="index.js"></script>
+    <% } %>
+
+    <% if (bundleMethod == "browserify"){ %>
+    <!-- using browserify -->
+	<script src="dev_bundle.js"></script>
+	<% } %>
+ 	<!-- /build -->
+
+</head>
+
+<body>
+    <div id="p5_loading">Loading the stuffs...<div>
+</body>
+
+</html>

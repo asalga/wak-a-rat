@@ -1,0 +1,109 @@
+{
+  "id": "wak-a-rat",
+
+  "targets": {
+
+    "_op_frags_0": {
+      "dir": "_op_frags_0",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "_op_frags_1": {
+      "dir": "_op_frags_1",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "_op_frags_window_resize": {
+      "dir": "_op_frags_window_resize",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "_op_frags_uniforms_0": {
+      "dir": "_op_frags_uniforms_0",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "_op_frags_functions_0": {
+      "dir": "_op_frags_functions_0",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "_op_frags_shape_0": {
+      "dir": "_op_frags_shape_0",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+
+    "robotic-access": {
+      "dir": "robotic-access",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "tower-toppler-viz": {
+      "dir": "tower-toppler-viz",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "example-timing": {
+      "dir": "example-timing",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "wak-a-rat": {
+      "dir": "wak-a-rat",
+      "library": "p5js-0.6",
+      "bundleMethod": "browserify"
+    },
+
+    "data-to-texture": {
+      "dir": "data-to-texture",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "sobel": {
+      "dir": "sobel",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "cel": {
+      "dir": "cel",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "tunnel": {
+      "dir": "tunnel",
+      "library": "p5js",
+      "bundleMethod": "concat"
+    },
+
+    "p5-require": {
+      "dir": "examples/p5-require",
+      "library": "p5js",
+      "bundleMethod": "browserify"
+    },
+
+    "unfold": {
+      "dir": "unfold",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    },
+
+    "synthwave": {
+      "dir": "synthwave",
+      "library": "p5js-0.6",
+      "bundleMethod": "concat"
+    }
+  }
+}

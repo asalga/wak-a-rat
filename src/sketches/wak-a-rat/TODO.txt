@@ -1,0 +1,4 @@
+- Polish timings
+- skip frames if nothing has changed
+- Add mute button?
+- Fix copy rendering outside of UI if missed > 2 digits
