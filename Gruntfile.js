@@ -66,11 +66,11 @@ module.exports = function(grunt) {
      *
      * Opens the web server in the browser
      */
-    open: {
-      server: {
-        path: `http://localhost:<%= connect.options.port %>/`
-      }
-    },
+    // open: {
+    //   server: {
+    //     path: `http://localhost:<%= connect.options.port %>/`
+    //   }
+    // },
 
 
     /**
@@ -350,7 +350,7 @@ module.exports = function(grunt) {
 
     // LIVE UPDATES / PREVIEW
     'connect:livereload',
-    'open',
+    // 'open',
     'watch'
   ]);
 };
