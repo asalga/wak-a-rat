@@ -1,0 +1,1 @@
+git co gh-pages && git merge master && grunt prod && git commit -m"build" && git push
