@@ -363,4 +363,10 @@ module.exports = function(grunt) {
     // 'open',
     'watch'
   ]);
+
+  grunt.registerTask('prod', [
+    'copy:dev',
+    'bundle'
+  ]);
+
 };
