@@ -24,7 +24,7 @@ let Strings = {
   'LOSE': 'LOSER!'
 };
 
-let debug = true;
+let debug = false;
 let paused = true;
 
 let assets;
