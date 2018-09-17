@@ -8,16 +8,6 @@ body {
   cursor: url(data/images/crosshair.png) 25 25, crosshair;
 }
 
-.no-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 #p5_loading {
   color: white;
   font-family: "Comic Sans MS", cursive, sans-serif;
@@ -65,3 +55,13 @@ canvas#defaultCanvas0 {
   z-index: 1;
 }
 */
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
