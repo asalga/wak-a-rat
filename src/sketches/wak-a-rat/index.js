@@ -15,18 +15,21 @@ let GameBoard = require('./GameBoard').instance;
 let Max = require('./characters/Max');
 let Sam = require('./characters/Sam');
 let UI = require('./UI');
-// let Howler = require('Howler');
 // let Strings = require('./Strings');
 
-// Place in Module
+// TODO: Move to a Module
 let Strings = {
   'PAUSED': 'Game Paused. Press SPACE to Continue.',
   'WIN': 'WINNER!',
-  'LOSE': 'LOSER!'
+  'LOSE': 'LOSER!',
+
+  'AUDIO_ON': 'data/images/icons/audio_on.gif',
+  'AUDIO_OFF': 'data/images/icons/audio_off.gif'
 };
 
 let debug = false;
 let paused = true;
+// let dirty = true;
 
 let assets;
 let _p5;
@@ -36,7 +39,7 @@ let now = 0,
   gameTime = 0;
 
 let fps = 0;
-// let dirty = true;
+
 let framesSaved = 0;
 let max, sam;
 
@@ -167,6 +170,12 @@ function togglePause() {
   }
 
   paused = !paused;
+  setPause(paused);
+}
+
+function setPause(p){
+  paused = p;
+
   if (paused === false) {
     lastTime = _p5.millis();
     bkMusic.play();
@@ -184,8 +193,7 @@ function getEl(name){
 function setupMuteBtn(){
   let muteBtn = getEl('audio-button');
 
-  let muteImg = [ 'data/images/icons/audio_off.gif',
-                  'data/images/icons/audio_on.gif'];
+  let muteImg = [ Strings['AUDIO_OFF'], Strings['AUDIO_ON'] ];
 
   muteBtn.src = muted ? muteImg[0] : muteImg[1];
 
@@ -194,6 +202,18 @@ function setupMuteBtn(){
     muteBtn.src = muted ? muteImg[0] : muteImg[1];
     Howler.mute(muted);
   });
+
+  // save to show now that preload is done
+  muteBtn.style.display = "block";
+}
+
+
+function checkPageFocus(){
+  // If user changes tabs, the animation really messed up on return
+  // so just pause on tab change.
+  if(document.hasFocus() == false){
+    setPause(true);
+  }
 }
 
 var newp5 = new p5(function(p) {
@@ -205,12 +225,10 @@ var newp5 = new p5(function(p) {
     p.bitmapTextFont(bitmapFont);
     p.frameRate(30);
 
-    Howler.mute(true);
-    Howler.volume(0.5);
 
-    // Howler.volume(0);
+    setInterval( checkPageFocus, 200 );
 
-    // howler.mute(muted);
+    Howler.mute(muted);
 
     // Naw, let's use an image instead
     // document.body.style.cursor = "none";
@@ -222,7 +240,6 @@ var newp5 = new p5(function(p) {
     sam = new Sam({ p5: p });
 
     bkMusic = assets.get('data/audio/background/1_round_mono.mp3');
-    // bkMusic = assets.get('data/audio/placeholder/null.mp3');
 
     bkMusic.on('end', function(t) {
       endGame();
@@ -250,17 +267,15 @@ var newp5 = new p5(function(p) {
     });
   };
 
-  // p.mouseMoved = function() {
-  //   dirty = true;
-  // }
+  // p.mouseMoved = function() {dirty = true;}
 
   /*
     User tried to hit a slot
   */
   p.mousePressed = function() {
     if (paused) {
-      // togglePause();
-      // return;
+      togglePause();
+      return;
     }
 
     let slotIdx = GameBoard.hit({ x: p.mouseX, y: p.mouseY });
