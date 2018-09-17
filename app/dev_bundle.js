@@ -75877,7 +75877,7 @@ let max, sam;
 let bitmapFont, scummFont;
 
 let bkMusic;
-let muted = true;
+let muted = false;
 
 function update(dt) {
   if (paused) {
