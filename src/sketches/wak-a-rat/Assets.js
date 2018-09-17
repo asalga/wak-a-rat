@@ -1,6 +1,7 @@
 'use strict';
 
 const Atlas = require('./Atlas');
+const Howler = require('Howler');
 const Howl = require('Howler').Howl;
 const Manifest = require('./Manifest');
 
