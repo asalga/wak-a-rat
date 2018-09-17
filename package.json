@@ -23,6 +23,7 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-processhtml": "^0.4.1",
+    "howler": "^2.0.15",
     "matchdep": "^1.0.1",
     "p5": "^0.5.16",
     "p5-bitmapfont": "^1.0.3",

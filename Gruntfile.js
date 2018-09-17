@@ -20,6 +20,7 @@ module.exports = function(grunt) {
   const src = 'src';
   const tmp = '.tmp';
   const app = 'app';
+  const lib = 'src/libs';
   const basePath = 'src/sketches/';
 
   let config = {
@@ -145,6 +146,15 @@ module.exports = function(grunt) {
             cwd: `${config.target}/data`,
             src: '*.js',
             dest: `${app}/`,
+            filter: 'isFile'
+          },
+
+          // JS LIBS
+          {
+            expand: true,
+            cwd: `${lib}`,
+            src: '*.js',
+            dest: `${app}/libs`,
             filter: 'isFile'
           },
 
@@ -346,7 +356,7 @@ module.exports = function(grunt) {
     // jshint:dev
 
     // HTML
-    'processhtml',
+    // 'processhtml',
 
     // LIVE UPDATES / PREVIEW
     'connect:livereload',
