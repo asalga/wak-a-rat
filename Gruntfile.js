@@ -116,13 +116,13 @@ module.exports = function(grunt) {
       dev: {
         files: [
           // MARKUP
-          // {
-          //   expand: true,
-          //   cwd: `${src}/`,
-          //   src: 'index.html',
-          //   dest: `${app}/`,
-          //   filter: 'isFile'
-          // },
+          {
+            expand: true,
+            cwd: `${src}/`,
+            src: 'index.html',
+            dest: `${app}/`,
+            filter: 'isFile'
+          },
           // STYLE
           {
             expand: true,
