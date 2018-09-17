@@ -1,1 +1,6 @@
-git co gh-pages && git merge master && grunt prod && git commit -m"build" && git push
+git co gh-pages && \
+git merge master && \
+grunt prod && \
+git add . && \
+git commit -m"prod build" 
+&& git push
