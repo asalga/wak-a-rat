@@ -74896,6 +74896,7 @@ module.exports = Animation;
 'use strict';
 
 const Atlas = require('./Atlas');
+const Howler = require('Howler');
 const Howl = require('Howler').Howl;
 const Manifest = require('./Manifest');
 
@@ -75404,7 +75405,7 @@ let Manifest = {
       path: 'data/audio/sam/miss.mp3'
     },
     {
-      path: 'data/audio/background/1_round.mp3'
+      path: 'data/audio/background/1_round_mono.mp3'
       // path: 'data/audio/placeholder/test.mp3'
       // path: 'data/audio/placeholder/null.mp3'
     }
@@ -75845,6 +75846,7 @@ let GameBoard = require('./GameBoard').instance;
 let Max = require('./characters/Max');
 let Sam = require('./characters/Sam');
 let UI = require('./UI');
+// let Howler = require('Howler');
 // let Strings = require('./Strings');
 
 // Place in Module
@@ -75872,7 +75874,7 @@ let max, sam;
 let bitmapFont, scummFont;
 
 let bkMusic;
-
+let muted = true;
 
 function update(dt) {
   if (paused) {
@@ -76006,13 +76008,42 @@ function togglePause() {
   }
 }
 
-var newp5 = new p5(function(p, ) {
+function getEl(name){
+  return document.getElementById(name);
+}
+
+function setupMuteBtn(){
+  let muteBtn = getEl('audio-button');
+
+  let muteImg = [ 'data/images/icons/audio_off.gif',
+                  'data/images/icons/audio_on.gif'];
+
+  muteBtn.src = muted ? muteImg[0] : muteImg[1];
+
+  muteBtn.addEventListener('click', e => {
+    muted = !muted;
+    muteBtn.src = muted ? muteImg[0] : muteImg[1];
+    Howler.mute(muted);
+  });
+}
+
+var newp5 = new p5(function(p) {
   _p5 = p;
 
   p.setup = function setup() {
-    p.createCanvas(640, 400);
+    let cvs = p.createCanvas(640, 400);
+    cvs.parent('sketch-container');
     p.bitmapTextFont(bitmapFont);
     p.frameRate(30);
+
+    Howler.mute(true);
+    Howler.volume(0.5);
+
+    // Howler.volume(0);
+
+    // howler.mute(muted);
+
+    // Naw, let's use an image instead
     // document.body.style.cursor = "none";
     // p.cursor(p.CROSS);
 
@@ -76021,14 +76052,14 @@ var newp5 = new p5(function(p, ) {
     max = new Max({ p5: p });
     sam = new Sam({ p5: p });
 
-    bkMusic = assets.get('data/audio/background/1_round.mp3');
-    // bkMusic = assets.get('data/audio/placeholder/test.mp3');
+    bkMusic = assets.get('data/audio/background/1_round_mono.mp3');
     // bkMusic = assets.get('data/audio/placeholder/null.mp3');
 
     bkMusic.on('end', function(t) {
-      console.log("MUSIC DONE!", t);
       endGame();
     });
+
+    setupMuteBtn();
   };
 
   /*
@@ -76059,7 +76090,7 @@ var newp5 = new p5(function(p, ) {
   */
   p.mousePressed = function() {
     if (paused) {
-      togglePause();
+      // togglePause();
       // return;
     }
 
@@ -76114,5 +76145,5 @@ var newp5 = new p5(function(p, ) {
 
     lastTime = now;
   };
-});
+}, "#cvs");
 },{"./Assets":5,"./GameBoard":7,"./KB":8,"./UI":10,"./characters/Max":12,"./characters/Sam":14,"p5":3,"p5-bitmapfont":2}]},{},[15]);
