@@ -1,0 +1,8 @@
+- add click/hit cooldown?
+- Fix copy rendering outside of UI if missed > 2 digits
+- Add final/endgame copy
+
+
+
+
+- skip frames if nothing has changed / dirty flag
